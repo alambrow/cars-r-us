@@ -22,8 +22,11 @@ const database = {
         { id: 2, wheelType: "17-inch Pair Radial Black", price: 449.99 },
         { id: 3, wheelType: "18-inch Pair Spoke Silver", price: 699.99 },
         { id: 4, wheelType: "18-inch Pair Spoke Black", price: 749.99 }
-    ]
+    ],
+    orderBuilder: {},
 }
+
+// functions to get state
 
 export const getColor = () => {
     return [...database.paintColor]
@@ -41,4 +44,20 @@ export const getWheels = () => {
     return [...database.wheels]
 }
 
-// the orders database should likely use another method (and should be stored elsewhere)
+// functions to set state
+
+export const setColor = (id) => {
+    database.orderBuilder.colorId = id
+}
+
+export const setInterior = (id) => {
+    database.orderBuilder.interiorId = id
+}
+
+export const setTechnology = (id) => {
+    database.orderBuilder.technologyId = id
+}
+
+export const setWheel = (id) => {
+    database.orderBuilder.wheelId = id
+}

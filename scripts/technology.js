@@ -1,4 +1,4 @@
-import { getTechnology } from "./database.js"
+import { getTechnology, setTechnology } from "./database.js"
 
 const technologies = getTechnology()
 
@@ -6,7 +6,7 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "technologies") {
-            window.alert(`User chose technology package ${event.target.value}`)
+            setTechnology(parseInt(event.target.value))
         }
     }
 )

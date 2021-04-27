@@ -1,4 +1,4 @@
-import { getColor } from "./database.js"
+import { getColor, setColor } from "./database.js"
 
 const colors = getColor()
 
@@ -6,7 +6,7 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "colors") {
-            window.alert(`User chose color ${event.target.value}`)
+            setColor(parseInt(event.target.value))
         }
     }
 )

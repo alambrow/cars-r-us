@@ -40,3 +40,5 @@ export const getTechnology = () => {
 export const getWheels = () => {
     return [...database.wheels]
 }
+
+// the orders database should likely use another method (and should be stored elsewhere)

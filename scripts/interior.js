@@ -2,6 +2,15 @@ import { getInterior } from "./database.js"
 
 const interiors = getInterior()
 
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "interiors") {
+            window.alert(`User chose interior ${event.target.value}`)
+        }
+    }
+)
+
 export const interior = () => {
     let html = "<ul>"
 

@@ -2,6 +2,15 @@ import { getColor } from "./database.js"
 
 const colors = getColor()
 
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "colors") {
+            window.alert(`User chose color ${event.target.value}`)
+        }
+    }
+)
+
 export const paintColor = () => {
     let html = "<ul>"
 

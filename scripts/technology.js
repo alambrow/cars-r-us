@@ -2,6 +2,15 @@ import { getTechnology } from "./database.js"
 
 const technologies = getTechnology()
 
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "technologies") {
+            window.alert(`User chose technology package ${event.target.value}`)
+        }
+    }
+)
+
 export const technology = () => {
     let html = "<ul>"
 

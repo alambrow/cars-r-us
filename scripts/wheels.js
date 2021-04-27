@@ -2,6 +2,15 @@ import { getWheels } from "./database.js"
 
 const wheelArray = getWheels()
 
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "wheels") {
+            window.alert(`User chose wheel type ${event.target.value}`)
+        }
+    }
+)
+
 export const wheels = () => {
     let html = "<ul>"
 
@@ -9,7 +18,7 @@ export const wheels = () => {
     const wheelList = wheelArray.map(
         (wheel) => {
             return `<li>
-            <input type="radio" name="technologies" value="${wheel.id}" /> ${wheel.wheelType}
+            <input type="radio" name="wheels" value="${wheel.id}" /> ${wheel.wheelType}
             </li>`
         })
 

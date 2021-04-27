@@ -1,12 +1,12 @@
 import { getWheels } from "./database.js"
 
-const wheels = getWheels()
+const wheelArray = getWheels()
 
 export const wheels = () => {
     let html = "<ul>"
 
     // Use .map() for converting objects to <li> elements
-    const wheelList = wheels.map(
+    const wheelList = wheelArray.map(
         (wheel) => {
             return `<li>
             <input type="radio" name="technologies" value="${wheel.id}" /> ${wheel.wheelType}

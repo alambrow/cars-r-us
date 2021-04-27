@@ -1,7 +1,7 @@
-import { interior } from "./interior"
-import { paintColor } from "./paintColor"
-import { technology } from "./technology"
-import { wheels } from "./wheels"
+import { interior } from "./interior.js"
+import { paintColor } from "./paintColor.js"
+import { technology } from "./technology.js"
+import { wheels } from "./wheels.js"
 
 export const carsRus = () => {
     return `
@@ -31,7 +31,7 @@ export const carsRus = () => {
         </article>
 
         <article class="customOrders">
-            <h2>Custom Jewelry Orders</h2>
+            <h2>Custom Orders</h2>
         </article>
     `
 }

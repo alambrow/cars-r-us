@@ -2,6 +2,21 @@ import { interior } from "./interior.js"
 import { paintColor } from "./paintColor.js"
 import { technology } from "./technology.js"
 import { wheels } from "./wheels.js"
+import { Orders } from "./orders.js"
+import { addCustomOrder } from "./database.js"
+
+document.addEventListener(
+    "click",
+    (stateChanged) => {
+        const itemClicked = stateChanged.target
+
+        // if the order button is clicked, the state change is registered permanently in database.js
+        if (itemClicked.id.startsWith("orderButton")) {
+            addCustomOrder()
+            // remember to re-render HTML in main by adding a secondary event listener
+        }
+    }
+)
 
 export const carsRus = () => {
     return `
@@ -32,6 +47,7 @@ export const carsRus = () => {
 
         <article class="customOrders">
             <h2>Custom Orders</h2>
+            ${ Orders() }
         </article>
     `
 }

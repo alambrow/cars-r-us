@@ -23,6 +23,17 @@ const database = {
         { id: 3, wheelType: "18-inch Pair Spoke Silver", price: 699.99 },
         { id: 4, wheelType: "18-inch Pair Spoke Black", price: 749.99 }
     ],
+    customOrders: [
+        {
+            id: 1,
+            paintId: 1,
+            interiorId: 1,
+            technologyId: 1,
+            wheelsId: 1,
+            price: 1,
+            timestamp: 101010101010101
+        }
+    ],
     orderBuilder: {},
 }
 
@@ -44,6 +55,10 @@ export const getWheels = () => {
     return [...database.wheels]
 }
 
+export const getOrders = () => {
+    return [...database.customOrders]
+}
+
 // functions to set state
 
 export const setColor = (id) => {
@@ -60,4 +75,28 @@ export const setTechnology = (id) => {
 
 export const setWheel = (id) => {
     database.orderBuilder.wheelId = id
+}
+
+// function that takes temp values in orderBuilder
+// and stores them in database in customOrders object
+
+export const addCustomOrder = () => {
+    // copy the temp data stored in orderBuilder object to newOrder object
+    const newOrder = {...database.orderBuilder}
+
+    // add new pk to order object
+    // how exactly is pop working here???
+    newOrder.id = [...database.customOrders].pop().id + 1
+
+    // Add timestamp to order object
+    newOrder.timestamp = Date.now()
+
+    // Add order object to custom orders array in database object
+    database.customOrders.push(newOrder)
+
+    // Reset contents of orderBuilder object
+    database.orderBuilder = {}
+
+    // Broadcast notification of permanent state change
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }

@@ -4,7 +4,9 @@
 
 /*Typography
 --------------------------------------------------------------*/
-body,
+body {
+  background-color: blanchedalmond;
+},
 button,
 input,
 select,
@@ -18,6 +20,7 @@ textarea {
 h1,h2,h3,h4,h5,h6 {
   font-family: "Patua One", serif;
   letter-spacing: 2px;
+  text-decoration: underline;
 }
 
 ul {
@@ -28,7 +31,7 @@ ul {
 #orderButton {
     margin: 1rem 0 2rem 2rem;
     padding: 0.5rem;
-    background-color: rgb(227, 72, 72);
+    background-color: rgba(173, 64, 64, .8);
     color: lightgoldenrodyellow;
-    font-size: 1rem;
+    font-size: 2rem;
 }

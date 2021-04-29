@@ -23,6 +23,12 @@ const database = {
         { id: 3, wheelType: "18-inch Pair Spoke Silver", price: 699.99 },
         { id: 4, wheelType: "18-inch Pair Spoke Black", price: 749.99 }
     ],
+    // price in type.price are multipliers
+    types: [
+        { id: 1, type: "Car", price: 1 },
+        { id: 2, type: "SUV", price: 1.5 },
+        { id: 3, type: "Truck", price: 2.25 }
+    ],
     customOrders: [
         {
             id: 1,
@@ -30,7 +36,7 @@ const database = {
             interiorId: 1,
             technologyId: 1,
             wheelsId: 1,
-            price: 1,
+            typeId: 1,
             timestamp: 101010101010101
         }
     ],
@@ -59,6 +65,10 @@ export const getOrders = () => {
     return [...database.customOrders]
 }
 
+export const getTypes = () => {
+    return [...database.types]
+}
+
 // functions to set state
 
 export const setColor = (id) => {
@@ -75,6 +85,10 @@ export const setTechnology = (id) => {
 
 export const setWheel = (id) => {
     database.orderBuilder.wheelsId = id
+}
+
+export const setType = (id) => {
+    database.orderBuilder.typeId = id
 }
 
 // function that takes temp values in orderBuilder

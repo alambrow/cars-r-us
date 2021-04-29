@@ -1,9 +1,10 @@
-import { getColor, getInterior, getOrders, getTechnology, getWheels } from "./database.js"
+import { getColor, getInterior, getOrders, getTechnology, getTypes, getWheels } from "./database.js"
 
 const colors = getColor()
 const interiors = getInterior()
 const technologies = getTechnology()
 const wheels = getWheels()
+const types = getTypes()
 
 const buildOrderListItems = (order) => {
     // the functions up here generate the prices for the components of the order
@@ -30,10 +31,17 @@ const buildOrderListItems = (order) => {
             return wheel.id === order.wheelsId
         }
     )
-    const totalPrice = selectedColor.price + selectedInterior.price + selectedTech.price + selectedWheels.price
+    const selectedType = types.find(
+        (type) => {
+            return type.id === order.typeId
+        }
+    )
+
+    const totalPrice = (selectedColor.price + selectedInterior.price + selectedTech.price + selectedWheels.price) * selectedType.price
+    const totalCost = totalPrice.toFixed(2)
 
     return `<li>
-    <strong>Order ${order.id}</strong> was placed at the ridiculous time of ${order.timestamp} and will cost the consumer $${ totalPrice }
+    <strong>Order ${order.id}</strong> was placed at the ridiculous time of ${order.timestamp} and will cost the consumer $${ totalCost }.
     </li>`
 }
 

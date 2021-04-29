@@ -13,7 +13,6 @@ document.addEventListener(
         // if the order button is clicked, the state change is registered permanently in database.js
         if (itemClicked.id.startsWith("orderButton")) {
             addCustomOrder()
-            // remember to re-render HTML in main by adding a secondary event listener
         }
     }
 )

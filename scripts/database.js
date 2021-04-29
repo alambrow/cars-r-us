@@ -62,7 +62,7 @@ export const getOrders = () => {
 // functions to set state
 
 export const setColor = (id) => {
-    database.orderBuilder.colorId = id
+    database.orderBuilder.paintId = id
 }
 
 export const setInterior = (id) => {
@@ -74,7 +74,7 @@ export const setTechnology = (id) => {
 }
 
 export const setWheel = (id) => {
-    database.orderBuilder.wheelId = id
+    database.orderBuilder.wheelsId = id
 }
 
 // function that takes temp values in orderBuilder
